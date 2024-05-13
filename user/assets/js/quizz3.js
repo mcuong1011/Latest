@@ -41,7 +41,9 @@ const countdownElement = document.getElementById('countdown');
 const submitBtn = document.getElementById('submitBtn');
 const messageElement = document.getElementById('message');
 
-
+const totalTime = 60*90; // Thời gian làm bài, tính theo giây
+let timeLeft = totalTime;
+let totalMark = 0;
 
 // Tính tổng số điểm của bài thi sau khi hoàn thành
 function calculateTotalMark(option, idQuestion) {
