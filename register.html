@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="./assets/css/login.css" />
+  </head>
+  <body>
+    <div class="bg-image--left">
+      <img src="./assets/img/bg_left.png" alt="" />
+    </div>
+    <div class="bg-image--right">
+      <img src="./assets/img/bg_right.png" alt="" />
+    </div>
+
+    <div class="container">
+      <button id="topRightButton_3" class="top-right-button">Quay lại</button>
+    </div>
+
+    <div class="container-fluid-login">
+      <div class="login">
+        <div class="login__main">
+          <div class="login__logo">
+            <img src="./assets/img/logo_ptit.png" alt="Logo" />
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="register__main__title">
+                <p>Đăng ký</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <form
+                id="register_form_id"
+                class="login__main__form"
+                method="post"
+              >
+                <label for="register__user">Tài khoản</label>
+                <input
+                  type="text"
+                  name="username"
+                  id="register__user"
+                  value=""
+                  autofocus
+                />
+                <label for="register__pw">Mật khẩu</label>
+                <input type="password" name="password" id="register__pw" />
+                <button type="submit"><span>Đăng ký</span></button>
+              </form>
+            </div>
+          </div>
+          <div id="login__status_noti" class="notification">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/register.js"></script>
+  </body>
+</html>

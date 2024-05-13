@@ -1,0 +1,51 @@
+/* CUSTOM CSS */
+/* Change color of the text in navigation bar when redirecting to corresponding page */
+.navbar-nav .navbar-item .nav-link:active {
+    color: aquamarine;
+    font-weight: 600;
+}
+
+.navbar-container {
+    background-color: #BB2019 !important;
+    height: 54.4px;
+    width: 100%;
+    padding-left: 38.4px !important;
+    padding-right: 38.4px !important;
+    font-size: 1.2rem !important;
+}
+
+.navbar-container .navbar {
+    padding-top: 5px
+}
+
+.navbar button.navbar-toggler {
+    border-color: aliceblue;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 1rem !important;
+}
+
+.navbar button.navbar-toggler .navbar-toggler-icon {
+    color: #fff;
+}
+
+.navbar-brand-img {
+    /* Custom the circle */
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-brand-img img {
+    width: 1.2rem;
+}
+
+.navbar-brand p{
+    margin: 0;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="./assets/css/login.css" />
+  </head>
+  <body>
+    <div class="bg-image--left">
+      <img src="./assets/img/bg_left.png" alt="" />
+    </div>
+    <div class="bg-image--right">
+      <img src="./assets/img/bg_right.png" alt="" />
+    </div>
+
+    <div class="container">
+      <button id="topRightButton" class="top-right-button">Admin</button>
+    </div>
+
+    <div class="container-fluid-login">
+      <div class="login">
+        <div class="login__main">
+          <div class="login__logo">
+            <img src="./assets/img/logo_ptit.png" alt="Logo" />
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="login__main__title">
+                <p>Đăng nhập</p>
+                <p><b>Sinh viên</b></p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <form
+                id="login_form_id"
+                class="login__main__form"
+                method="post"
+              >
+                <label for="login__user">Tài khoản</label>
+                <input
+                  type="text"
+                  name="username"
+                  id="login__user"
+                  value=""
+                  autofocus
+                />
+                <label for="login__pw">Mật khẩu</label>
+                <input type="password" name="password" id="login__pw" />
+                <div>
+                  <div class="checkbox__login">
+                    <input
+                      type="checkbox"
+                      value="1"
+                      name="remember"
+                      id="login__checkbox"
+                    />
+                  </div>
+                </div>
+                <button type="submit"><span>Đăng nhập</span></button>
+                <button type="button" id="registry">Đăng ký</button>
+              </form>
+            </div>
+          </div>
+          <div id="login__status_noti" class="notification">
+            <p><span></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/login.js"></script>
+  </body>
+</html>

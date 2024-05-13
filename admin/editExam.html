@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa</title>
+</head>
+<body>
+    <h1>Chỉnh sửa</h1>
+
+    <div id="examDetails">
+        <label for="examName">Tên bài kiểm tra:</label>
+        <input type="text" id="examName" readonly><br><br>
+
+        <label for="examAmount">Số lượng:</label>
+        <input type="number" id="examAmount"><br><br>
+
+        <label for="examAverageScores">Điểm trung bình:</label>
+        <input type="number" id="examAverageScores"><br><br>
+
+        <label for="examCompletionRate">Tỉ lệ hoàn thành:</label>
+        <input type="text" id="examCompletionRate"><br><br>
+
+        <button onclick="saveChanges()">Lưu thay đổi</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const examId = urlParams.get('id');
+
+        const examData = {
+            id: examId,
+            name: "Midterm Exam",
+            amount: 100,
+            averageScores: 85,
+            completionRate: "90%"
+        };
+
+        document.getElementById('examName').value = examData.name;
+        document.getElementById('examAmount').value = examData.amount;
+        document.getElementById('examAverageScores').value = examData.averageScores;
+        document.getElementById('examCompletionRate').value = examData.completionRate;
+
+        function saveChanges() {
+            const newAmount = document.getElementById('examAmount').value;
+            const newAverageScores = document.getElementById('examAverageScores').value;
+            const newCompletionRate = document.getElementById('examCompletionRate').value;
+            console.log("New Amount: " + newAmount);
+            console.log("New Average Scores: " + newAverageScores);
+            console.log("New Completion Rate: " + newCompletionRate);
+        }
+    </script>
+</body>
+</html>

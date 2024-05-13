@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tạo bài thi</title> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/css/addQuiz.css"/>
+  
+</head>
+
+<body>
+
+  <!-- HEADER NAVBAR -->
+  <div class="header-navbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="left-side">
+            <!-- hidden navbar -->
+            <div class="navbar-btn hidden">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="logo">
+              <img src="./assets/img/logo_ptit.png" alt="logo" />
+            </div>
+            <article class="navbar-item">
+              <a href="./admin.html">Trang Chủ</a>
+            </article>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="right-side">
+            <div class="user">
+              <div class="user-logo">
+                <img src="./assets/img/user-logo.png" alt="user logo" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="main-content">
+      <h1>Tạo bài thi</h1>
+
+      <form id="examForm" class="exam-info">
+        <div class="info">
+
+          <label class="title" for="examName">Tên</label><br/>
+          <input type="text" class="input" id="examName" placeholder="Tên bài thi" required/><br/>
+
+          <label class="title" for="examDescription">Thể Loại</label><br/>
+          <input type="text" class="input" id="examDescription" placeholder="Miêu tả" required/><br/>
+
+          <label class="title" for="examDuration">Thời gian làm bài</label><br/>
+          <input type="number" class="input" id="examDuration" placeholder="Thời gian" required/><br/>
+        </div>
+
+        <section class="ctn grid_question">
+          <div id="examModal" class="modal">
+            <div class="modal-content">
+
+              <p class="create-title">Nhập câu hỏi</p>
+
+              <section class="containter1 question__section">
+                <form action="#" class="question__main__form">
+                  <input
+                    class="question-name input-field"
+                    type="text"
+                    id="question"
+                    name="question"
+                    placeholder="Nhập câu hỏi của bạn ở đây"
+                    required
+                  />
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_1"
+                      name="ans_1"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_2"
+                      name="ans_2"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_3"
+                      name="ans_3"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_4"
+                      name="ans_4"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <!-- Dropdown menu for correct answer -->
+                  <div class="individual__question">
+                    <label for="correct-answer">Chọn đáp án đúng:</label>
+                    <select id="correct-answer" name="correct-answer">
+                      <option value="ans_1">Đáp án 1</option>
+                      <option value="ans_2">Đáp án 2</option>
+                      <option value="ans_3">Đáp án 3</option>
+                      <option value="ans_4">Đáp án 4</option>
+                    </select>
+                  </div>
+
+                  
+                </form>
+              </section>
+
+
+              <section class="containter1 question__section">
+                <form action="#" class="question__main__form">
+                  <input
+                    class="question-name input-field"
+                    type="text"
+                    id="question"
+                    name="question"
+                    placeholder="Nhập câu hỏi của bạn ở đây"
+                    required
+                  />
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_1"
+                      name="ans_1"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_2"
+                      name="ans_2"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_3"
+                      name="ans_3"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_4"
+                      name="ans_4"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <!-- Dropdown menu for correct answer -->
+                  <div class="individual__question">
+                    <label for="correct-answer">Chọn đáp án đúng:</label>
+                    <select id="correct-answer" name="correct-answer">
+                      <option value="ans_1">Đáp án 1</option>
+                      <option value="ans_2">Đáp án 2</option>
+                      <option value="ans_3">Đáp án 3</option>
+                      <option value="ans_4">Đáp án 4</option>
+                    </select>
+                  </div>
+
+                  
+                </form>
+              </section>
+
+
+              <section class="containter1 question__section">
+                <form action="#" class="question__main__form">
+                  <input
+                    class="question-name input-field"
+                    type="text"
+                    id="question"
+                    name="question"
+                    placeholder="Nhập câu hỏi của bạn ở đây"
+                    required
+                  />
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_1"
+                      name="ans_1"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_2"
+                      name="ans_2"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_3"
+                      name="ans_3"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <div class="individual__question">
+                    <input
+                      class="input-field"
+                      type="text"
+                      id="ans_4"
+                      name="ans_4"
+                      placeholder="Nhập câu trả lời"
+                      required
+                    />
+                  </div>
+
+                  <!-- Dropdown menu for correct answer -->
+                  <div class="individual__question">
+                    <label for="correct-answer">Chọn đáp án đúng:</label>
+                    <select id="correct-answer" name="correct-answer">
+                      <option value="ans_1">Đáp án 1</option>
+                      <option value="ans_2">Đáp án 2</option>
+                      <option value="ans_3">Đáp án 3</option>
+                      <option value="ans_4">Đáp án 4</option>
+                    </select>
+                  </div>
+
+                  
+                </form>
+              </section>
+
+
+
+            </div>
+          </div>
+        </section>
+
+        <button type="submit" class="save-btn">Tạo bài thi</button>
+      </form>
+
+    </div>
+
+  </div>
+
+  <script src="./assets/js/addQuiz.js"></script>
+
+</body>
+
+</html>

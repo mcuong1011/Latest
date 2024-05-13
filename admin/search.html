@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng kết quả</title>
+    <style>
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <h1>Bảng kết quả</h1>
+    <div id="searchForm">
+        <label for="searchInput">Tìm kiếm bằng tên hoặc ID học sinh:</label>
+        <input type="text" id="searchInput" name="searchInput">
+        <button onclick="searchStudent()">Tìm kiếm</button>
+        <button id="exportButton" style="margin-left: 10px;">Xuất ra bản PDF</button>
+    </div>
+    <div id="studentResults">
+    </div>
+
+    <script>
+        function searchStudent() {
+            var studentData = [
+                {
+                    name: "Cường",
+                    studentID: "123456",
+                    exams: [
+                        {
+                            examName: "Toán",
+                            score: 85,
+                            status: "Hoàn thành",
+                            timeTaken: "2 giờ",
+                            answers: ["A", "B", "C"],
+                            correctAnswers: ["A", "B", "C"],
+                        },
+                        {
+                            examName: "Toán",
+                            score: 75,
+                            status: "Chưa hoàn thành",
+                            timeTaken: "1.5 giờ",
+                            answers: ["A", "B", "C"],
+                            correctAnswers: ["A", "C", "B"],
+                        }
+                    ]
+                },
+            ];
+
+            var searchInput = document.getElementById("searchInput").value.toLowerCase();
+            var studentResultsContainer = document.getElementById("studentResults");
+            studentResultsContainer.innerHTML = "";
+            var foundStudent = studentData.find(function(student) {
+                return student.name.toLowerCase().includes(searchInput) || student.studentID.includes(searchInput);
+            });
+
+            if (foundStudent) {
+                var studentInfo = document.createElement("div");
+                studentInfo.innerHTML = "<h2>" + foundStudent.name + " (" + foundStudent.studentID + ")</h2>";
+
+                foundStudent.exams.forEach(function(exam) {
+                    var examDetails = document.createElement("div");
+                    examDetails.innerHTML = "<h3>" + exam.examName + "</h3>" +
+                        "<p>Điểm: " + exam.score + "</p>" +
+                        "<p>Trạng thái: " + exam.status + "</p>" +
+                        "<p>Thời gian: " + exam.timeTaken + "</p>";
+
+                    var questionDetails = "<ul>";
+                    for (var i = 0; i < exam.answers.length; i++) {
+                        questionDetails += "<li>Câu hỏi " + (i + 1) + ": Câu trả lời - " + exam.answers[i] + ", Đáp án - " + exam.correctAnswers[i] + "</li>";
+                    }
+                    questionDetails += "</ul>";
+
+                    examDetails.innerHTML += questionDetails;
+
+                    studentInfo.appendChild(examDetails);
+                });
+
+                studentResultsContainer.appendChild(studentInfo);
+            } else {
+                studentResultsContainer.innerHTML = "<p>Không tìm thấy học sinh.</p>";
+            }
+        }
+
+        document.getElementById("exportButton").addEventListener("click", function() {
+            var studentResultsContainer = document.getElementById("studentResults");
+            var content = studentResultsContainer.innerHTML;
+
+            var doc = new jsPDF();
+            doc.setFontSize(12);
+            doc.setFont("helvetica", "normal");
+            doc.fromHTML(content, 10, 10);
+            doc.save("student_exam_results.pdf");
+        });
+    </script>
+</body>
+</html>

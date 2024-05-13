@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: var(--font-family-sans);
+  /* height: 10000px; */
+  background-color: #f6f8fa;
+}
+
+:root {
+  --clr-primary-1: #bb2019;
+}
+.score-container {
+  font-size: 24px; /* Điều chỉnh kích thước phù hợp */
+}
+.mark-content {
+  background-color: #fff;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.mark-main-info {
+  display: flex;
+}
+.mark-img {
+  max-width: 250px;
+}
+.mark-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mark-info {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.mark-header {
+  display: flex;
+}
+.mark-header .level {
+  color: var(--clr-primary-1);
+  padding-left: 5px;
+}
+.mark-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+.mark-button .mark-btn {
+  background-color: var(--clr-primary-1);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 6px 10px;
+  font-size: 1rem;
+}
+
+/* CIRCLE POINT */
+.point {
+  display:none
+}
+.round {
+  transform: rotate(-90deg);
+  transition: all 1s ease-in-out;
+
+  /* SVG */
+  fill: none;
+  stroke: red;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 0 999;
+}
+@media (max-width: 992px) {
+  .mark-img {
+    display: none;
+  }
+  .mark-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: 60vh;
+  }
+}
+@media (max-width: 576px) {
+  .mark-img {
+    display: none;
+  }
+  .mark-content {
+    flex-direction: column;
+    text-align: center;
+    height: 60vh;
+  }
+}
+
+
+
+
+
+/* Style for the result box */
+.result-box {
+  background-color: aliceblue;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  height: 250px;
+  line-height: 1.6;
+}
+
+.result-box .exam-info{
+font-size: 20px;
+}
+
+.result-box .result-info{
+text-align: center;
+}
+
+.result-box .result-info .result-title{
+font-size: 3rem;
+}
+
+.result-box .result-info .score-title{
+font-size: 3rem;
+}
+
+.result-box .result-info .score-title #score{
+font-size: 3rem;
+font-weight: bold;
+color: #bb2019;
+}
+
+
+
+.answer-details {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  overflow: auto; /* or overflow: hidden; */
+}
+
+
+.answer-details .correct-answer{
+font-weight: bold;
+color: green
+}
+
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  position: relative;
+}
+
+.buttons .back-to-main{
+  background-color: #bb2019;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 6px 10px;
+  font-size: 1rem;
+}
+
+.buttons .back-to-main:hover{
+cursor: pointer;
+background-color: #bb2019;
+}
+
+.buttons .restart-quiz{
+  background-color: #bb2019;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 6px 10px;
+  font-size: 1rem;
+}
+
+.buttons .restart-quiz:hover{
+cursor: pointer;
+background-color: #940000;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Thống kê</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
+</head>
+<body>
+    <h1>Thống kê kết quả kỳ thi</h1>
+    <div>
+        <label for="filterExam">Lọc kết quả theo kỳ thi:</label>
+        <select id="filterExam">
+            <option value="practice">Luyện tập</option>
+            <option value="45min">45 phút</option>
+            <option value="90min">90 phút</option>
+        </select>
+    </div>
+    
+    <div>
+        <label for="filterDate">Lọc kết quả theo ngày tháng:</label>
+        <input type="date" id="filterDate">
+    </div>
+    <canvas id="myChart" width="50" height="50"></canvas>
+    <div>
+        <p>Tổng số lần tham gia: <span id="totalParticipations"></span></p>
+        <p>Tỷ lệ hoàn thành: <span id="completionRate"></span></p>
+        <p>Điểm trung bình: <span id="averageScore"></span></p>
+    </div>
+    <div>
+        <button onclick="exportToPDF()">Xuất PDF</button>
+        <button onclick="exportToExcel()">Xuất Excel</button>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script>
+    <script>
+
+        const examResults = [
+            { exam: "Exam 1", score: 85, date: "2024-03-01" },
+            { exam: "Exam 2", score: 75, date: "2024-03-02" },
+            { exam: "Exam 3", score: 90, date: "2024-03-03" },
+
+        ];
+
+  
+        function calculateStatistics(data) {
+            const totalParticipations = data.length;
+            const completionRate = (data.filter(item => item.score >= 50).length / totalParticipations) * 100;
+            const totalScore = data.reduce((acc, item) => acc + item.score, 0);
+            const averageScore = totalScore / totalParticipations;
+            return {
+                totalParticipations,
+                completionRate: completionRate.toFixed(2) + "%",
+                averageScore: averageScore.toFixed(2)
+            };
+        }
+
+        function filterResults(examFilter, dateFilter) {
+            let filteredData = examResults;
+            if (examFilter !== 'all') {
+                filteredData = filteredData.filter(item => item.exam === examFilter);
+            }
+            if (dateFilter) {
+                filteredData = filteredData.filter(item => item.date === dateFilter);
+            }
+            return filteredData;
+        }
+
+        function renderChart(data) {
+            const labels = data.map(item => item.exam);
+            const scores = data.map(item => item.score);
+
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Điểm số',
+                        data: scores,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+
+            const statistics = calculateStatistics(data);
+            document.getElementById('totalParticipations').textContent = statistics.totalParticipations;
+            document.getElementById('completionRate').textContent = statistics.completionRate;
+            document.getElementById('averageScore').textContent = statistics.averageScore;
+        }
+
+        renderChart(examResults);
+        document.getElementById('filterExam').addEventListener('change', function() {
+            const selectedExam = this.value;
+            const selectedDate = document.getElementById('filterDate').value;
+            const filteredData = filterResults(selectedExam, selectedDate);
+            renderChart(filteredData);
+        });
+
+        document.getElementById('filterDate').addEventListener('change', function() {
+            const selectedExam = document.getElementById('filterExam').value;
+            const selectedDate = this.value;
+            const filteredData = filterResults(selectedExam, selectedDate);
+            renderChart(filteredData);
+        });
+
+        function exportToPDF() {
+            const doc = new jsPDF();
+            doc.text('Thống kê kết quả kỳ thi', 10, 10);
+            doc.text(`Tổng số lần tham gia: ${document.getElementById('totalParticipations').textContent}`, 10, 20);
+            doc.text(`Tỷ lệ hoàn thành: ${document.getElementById('completionRate').textContent}`, 10, 30);
+            doc.text(`Điểm trung bình: ${document.getElementById('averageScore').textContent}`, 10, 40);
+            doc.save('report.pdf');
+        }
+        function exportToExcel() {
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.table_to_sheet(document.getElementById('myChart'));
+            XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+            XLSX.writeFile(wb, 'report.xlsx');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fe !important;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+/* CUSTOM CSS */
+.bg-primary {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+/* flag to mark the question */
+.flagged::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-top: 18px solid #ef1414;
+  border-radius: 2px;
+}
+
+/* custom scrollbar */
+.scrollbar {
+  scroll-behavior: smooth;
+  position: relative;
+  height: 465px;
+  overflow-y: scroll;
+}
+
+/* -------------------------------------- */
+/* EXAM CSS */
+
+.exam-content {
+  max-width: 900px;
+  margin: 42px 0 0 0;
+  padding: 0 !important;
+}
+
+.exam-card {
+  background-color: #fff;
+  color: #333;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 10px 10px 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.exam-card-header {
+  padding: 0 24px;
+}
+.exam-card-header h1 {   
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  -moz-box-align: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  margin: 0px;
+}
+
+/* CSS EXAM QUESTION */
+
+/* timer in the right conner of parent tag */
+/* #timer {
+  padding: 10px;
+  background-color: #ef1414;
+  color: #fff;
+  border-radius: 0 0 0 16px;
+} */
+
+
+
+
+
+
+#timer {
+  padding: 10px;
+  background-color: #ef1414;
+  color: #fff;
+  border-radius: 50%; /* Set border-radius to 50% for a circle shape */
+  width: 80px; /* Set a fixed width for better aesthetics */
+  height: 80px; /* Set a fixed height for better aesthetics */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* Css scroll of options */
+/* hình nền của chính thanh cuộn đó */
+#options::-webkit-scrollbar {
+  /* scrollbar-width: thin !important; */
+  width: 3px;
+  background-color: #F5F5F5;
+} 
+
+/* phần tử cuộn có thể kéo để thay đổi kích cỡ. */
+#options::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+/* không gian trống bên dưới thanh tiến trình. */
+#options::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+#options {
+  padding: 16px 20px;
+}
+
+#options h3 {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#options .exam-question-num {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+#options .exam-question-flag {
+  color: #86c398;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+#options .exam-question-flag p {
+  margin: 0 0 0 6px;
+}
+
+#options .exam-question-content {
+  background-color: #e9f6f8;
+  padding: 10px 0 0 20px;
+  border-radius: 5px;
+}
+
+#options button {
+  display: block;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+#options button:hover {
+  background-color: #d30000;
+  color: #fff;
+}
+
+#options .exam-question-answer {
+  line-height: 2;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  text-align: center;
+}
+
+#options .exam-question-answer input {
+  margin-right: 10px;
+  height: 1.1rem;
+  width: 1.1rem;
+}
+
+#options .exam-question-answer p {
+  margin: 0;
+}
+
+#options .exam-clear-choice {
+  color: #4c967a;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin: 10px 0 0 28px;
+}
+
+/* CSS EXAM INFORMATION */
+
+#testInfo {
+  margin: 16px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.exam-navigation h3 {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#list-exam {
+  padding: 20px 0;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 0 24px;
+}
+
+#list-exam a {
+  width: calc(100% / 6);
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  border: 3px solid rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+}
+
+#list-exam a:hover {
+  background-color: rgb(234, 23, 23);
+  color: #fff;    
+}
+
+#list-exam a.active {
+  background-color: #10da3f;
+  color: #fff;
+}
+
+.exam-card .exam-submit-btn {
+  margin: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+#submitBtn {
+  background-color: #ef1414;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submitBtn:hover {
+  background-color: #000000;
+}
+
+
+@media (max-width: 993px) {
+  .exam-card-header h1 {
+      font-size: 0.8rem;
+  }
+  #list-exam {
+      margin: 0 0 0 16px;
+  }
+  #list-exam a {
+      width: calc(100% / 4);
+  }
+  #options {
+      padding: 16px 10px;
+  }
+  #options .exam-question-num {
+      padding: 10px;
+  }
+  #options .exam-question-content {
+      padding: 10px 0 0 10px;
+  }
+  #options .exam-clear-choice {
+      margin: 10px 0 0 20px;
+  }
+  .exam-card .exam-submit-btn {
+      margin: 16px;
+  }
+  #submitBtn {
+      padding: 10px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .exam-card {
+      margin: 0 auto;
+  }
+  .exam-card-header h1 {
+      font-size: 1.2rem;
+  }
+  #list-exam a {
+      width: calc(100% / 6);
+  }
+  #options {
+      padding: 16px 20px;
+  }
+  #options .exam-question-content {
+      padding: 10px 0 0 20px;
+  }
+  #options .exam-clear-choice {
+      margin: 10px 0 0 28px;
+  }
+  .exam-card .exam-submit-btn {
+      margin: 24px;
+  }
+  #submitBtn {
+      padding: 10px 20px;
+  }
+}
